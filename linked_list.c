@@ -8,9 +8,9 @@ typedef struct node {
 
 void add_node_to_end(node **list, int number);
 
-void add_node_to_beginning(node **list, int number);
+void add_node_to_start(node **list, int number);
 
-void print_list(node *list);
+void print_list_from_start(node *start);
 
 void free_list(node *list);
 
@@ -21,10 +21,10 @@ int main(void) {
     add_node_to_end(&list, 2);
     add_node_to_end(&list, 3);
     add_node_to_end(&list, 4);
-    add_node_to_beginning(&list, 0);
-    add_node_to_beginning(&list, -1);
+    add_node_to_start(&list, 0);
+    add_node_to_start(&list, -1);
 
-    print_list(list);
+    print_list_from_start(list);
 
     free_list(list);
     return 0;
@@ -56,7 +56,7 @@ void add_node_to_end(node **list, int number) {
     node->next = n;
 }
 
-void add_node_to_beginning(node **list, int number) {
+void add_node_to_start(node **list, int number) {
     node *n = malloc(sizeof(node));
     n->number = number;
     n->next = *list;
@@ -64,10 +64,10 @@ void add_node_to_beginning(node **list, int number) {
     *list = n;
 }
 
-void print_list(node *list) {
-    while (list != NULL) {
-        printf("%i\n", list->number);
-        list = list->next;
+void print_list_from_start(node *start) {
+    while (start != NULL) {
+        printf("%i\n", start->number);
+        start = start->next;
     }
 }
 
