@@ -5,3 +5,4 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(linked_list linked_list.c)
 add_executable(double_linked_list double_linked_list.c)
+add_executable(queue queue.c)
